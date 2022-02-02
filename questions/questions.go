@@ -1,4 +1,4 @@
-package main
+package questions
 
 import (
 	"errors"
@@ -14,7 +14,7 @@ type Answers struct {
 	Image   string
 }
 
-var banner = `
+var Banner = `
 ██████╗░░█████╗░████████╗  ██████╗░░█████╗░░██████╗████████╗███████╗██████╗░
 ██╔══██╗██╔══██╗╚══██╔══╝  ██╔══██╗██╔══██╗██╔════╝╚══██╔══╝██╔════╝██╔══██╗
 ██████╦╝██║░░██║░░░██║░░░  ██████╔╝██║░░██║╚█████╗░░░░██║░░░█████╗░░██████╔╝
@@ -24,7 +24,7 @@ var banner = `
 
 `
 
-var questions = []*survey.Question{
+var Questions = []*survey.Question{
 	{
 		Name: "token",
 		Prompt: &survey.Input{
