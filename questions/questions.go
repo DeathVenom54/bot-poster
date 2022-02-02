@@ -30,41 +30,21 @@ var Questions = []*survey.Question{
 		Prompt: &survey.Input{
 			Message: "Bot token:",
 		},
-		Validate: func(ans interface{}) error {
-			token := fmt.Sprintf("%v", ans)
-			match, err := regexp.Match(`^(.+)\.(.+)\.(.+)$`, []byte(token))
-			if err != nil {
-				return err
-			}
-			if !match {
-				return errors.New("invalid token")
-			}
-			return nil
-		},
+		Validate: shouldMatchRegex(`^(.+)\.(.+)\.(.+)$`),
 	},
 	{
 		Name: "channel",
 		Prompt: &survey.Input{
 			Message: "Channel ID:",
 		},
-		Validate: func(ans interface{}) error {
-			token := fmt.Sprintf("%v", ans)
-			match, err := regexp.Match(`^\d{18}$`, []byte(token))
-			if err != nil {
-				return err
-			}
-			if !match {
-				return errors.New("invalid channel id")
-			}
-			return nil
-		},
+		Validate: shouldMatchRegex(`^\d{18}$`),
 	},
 	{
 		Name: "message",
 		Prompt: &survey.Input{
-			Message: "Message (check formatting.txt):",
+			// TODO replace with readme section
+			Message: "Message (check here):",
 		},
-		Validate: survey.Required,
 	},
 	{
 		Name: "image",
@@ -72,5 +52,20 @@ var Questions = []*survey.Question{
 			Message: "Attachment (image or gif url):",
 			Default: "none",
 		},
+		Validate: shouldMatchRegex(`(none)|(https://(.+))`),
 	},
+}
+
+func shouldMatchRegex(regex string) func(interface{}) error {
+	return func(ans interface{}) error {
+		answer := fmt.Sprintf("%v", ans)
+		match, err := regexp.Match(regex, []byte(answer))
+		if err != nil {
+			return err
+		}
+		if !match {
+			return errors.New("invalid")
+		}
+		return nil
+	}
 }
