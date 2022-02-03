@@ -1,4 +1,7 @@
-# bot-poster
+# Bot Poster
+
+[![Discord](https://img.shields.io/discord/873232757508157470?label=support&style=for-the-badge)](https://discord.gg/qJnrRvt7wW)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/DeathVenom54/bot-poster?sort=semver&style=for-the-badge)](https://github.com/DeathVenom54/bot-poster/releases)
 
 This tool allows you to send a message to your Discord server through
 a bot. So if you need to post as a different persona for making
