@@ -17,7 +17,7 @@ func main() {
 		return
 	}
 
-	err = poster.Post(data)
+	err = poster.Post(&data)
 	if err != nil {
 		fmt.Println(err.Error())
 		return
