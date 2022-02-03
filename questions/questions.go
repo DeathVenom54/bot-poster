@@ -42,8 +42,7 @@ var Questions = []*survey.Question{
 	{
 		Name: "message",
 		Prompt: &survey.Input{
-			// TODO replace with readme section
-			Message: "Message (check here):",
+			Message: "Message (formatting: https://bit.ly/3roY4oQ):",
 		},
 	},
 	{
